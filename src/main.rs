@@ -14,7 +14,7 @@ use crate::types::{AutomationRequest, SseEvent};
 #[command(version, about = "CLI for the TinyFish web automation API")]
 struct Cli {
     /// API key for TinyFish
-    #[arg(short, long, env = "TINYFISH_API_KEY", global = true)]
+    #[arg(short, long, env = "TINYFISH_API_KEY")]
     api_key: String,
 
     #[command(subcommand)]
@@ -59,7 +59,8 @@ async fn run_automation(api_key: String, url: String, goal: String) -> Result<()
         feature_flags: None,
     };
 
-    let mut stream = client.run_sse(payload).await?;
+    let stream = client.run_sse(payload).await?;
+    tokio::pin!(stream);
 
     while let Some(result) = stream.next().await {
         match result {
@@ -80,7 +81,7 @@ async fn run_automation(api_key: String, url: String, goal: String) -> Result<()
                         };
                         
                         if !log_line.is_empty() {
-                            eprintln!("{}", log_line.dim());
+                            eprintln!("{}", log_line.dimmed());
                         }
                     }
                     SseEvent::Complete { result_json, .. } => {
