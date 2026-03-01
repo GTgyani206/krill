@@ -1,0 +1,20 @@
+# Rust build output
+/target/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Generated report/output files
+market_analysis_report.md
+top_posts.json
+
+# Editor/OS noise
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+.DS_Store
+Thumbs.db

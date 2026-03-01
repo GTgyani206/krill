@@ -85,9 +85,7 @@ pub enum SseEvent {
     },
 
     #[serde(rename = "HEARTBEAT")]
-    Heartbeat {
-        timestamp: Option<String>,
-    },
+    Heartbeat { timestamp: Option<String> },
 }
 
 // ── Response types ─────────────────────────────────────────────────────
