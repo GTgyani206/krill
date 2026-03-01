@@ -1,0 +1,1 @@
+C:\Users\gyane\Desktop\Projects\krill\target\debug\krill.exe: C:\Users\gyane\Desktop\Projects\krill\src\client.rs C:\Users\gyane\Desktop\Projects\krill\src\error.rs C:\Users\gyane\Desktop\Projects\krill\src\main.rs C:\Users\gyane\Desktop\Projects\krill\src\tui.rs C:\Users\gyane\Desktop\Projects\krill\src\types.rs

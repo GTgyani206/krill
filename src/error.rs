@@ -9,10 +9,7 @@ pub enum KrillError {
 
     // ── TinyFish API errors ────────────────────────────────────────────
     #[error("API error ({status}): {body}")]
-    ApiStatus {
-        status: u16,
-        body: String,
-    },
+    ApiStatus { status: u16, body: String },
 
     #[error("Automation failed: {}", .0.message)]
     AutomationFailed(ApiError),
